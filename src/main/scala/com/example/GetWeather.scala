@@ -5,6 +5,7 @@ import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.http.scaladsl.unmarshalling.Unmarshal
+import cats._
 
 import scala.concurrent.Future
 
