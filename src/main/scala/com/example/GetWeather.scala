@@ -14,10 +14,10 @@ object GetWeather {
   implicit val system = ActorSystem(Behaviors.empty, "SingleRequest")
   implicit val executionContext = system.executionContext
   def main(args: Array[String]): Unit = {
-    val weather = Await.result(getWeather(city, key, url), Duration.Inf)
+    val weather = Await.result(getWeather(url), Duration.Inf)
     println(weather)
   }
-  def getWeather(city: String, key: String, url: String): Future[String] = {
+  def getWeather(url: String): Future[String] = {
     val responseFuture: Future[HttpResponse] = Http().singleRequest(HttpRequest(uri = url))
     for {
       res <- responseFuture.map(r => r)
